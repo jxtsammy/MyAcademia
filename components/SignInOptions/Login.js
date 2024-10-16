@@ -9,7 +9,7 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <Image
-          source={require('../../assets/loginimg')} // Replace with your image path
+          source={require('../../assets/loginimg')}
           style={styles.image}
         />
         <Text style={styles.welcomeText}>Welcome back!</Text>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     width: '100%',
-    backgroundColor: '#1C6559',
+    backgroundColor: '#01796F',
     paddingVertical: 17,
     borderRadius: 30,
     alignItems: 'center',
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   signUpLink: {
     fontWeight: '600',
-    color: '#1C6559',
+    color: '#01796F',
   },
 });
 
