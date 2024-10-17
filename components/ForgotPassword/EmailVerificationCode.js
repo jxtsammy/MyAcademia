@@ -77,7 +77,7 @@ const EmailVerificationScreen = ({navigation}) => {
 
        <TouchableOpacity onPress={handleResendOtp} disabled={isResending}>
         <Text style={[styles.resendText, isResending && { color: '#aaa' }]}>
-          Don't receive a code? <Text style={styles.resendLink}>Resend</Text>
+          Didn't receive a code? <Text style={styles.resendLink}>Resend</Text>
         </Text>
       </TouchableOpacity>
 
