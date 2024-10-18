@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#01796F',
     paddingVertical: 15,
     paddingHorizontal: 20,
-    borderRadius: 10,
+    borderRadius: 30,
     marginBottom: 20,
   },
   navText: {
