@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform, ScrollView, TextInput, SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const TimetableForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -162,9 +161,8 @@ const TimetableForm = () => {
             onChangeText={setLocation}
             placeholder="Enter location"
           />
-        </KeyboardAvoidingView>
 
-        {/* Button Container */}
+          {/* Button Container */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
             <Text style={styles.saveButtonText}>Save</Text>
@@ -173,6 +171,7 @@ const TimetableForm = () => {
             <Text style={styles.cancelButtonText}>Cancel</Text>
           </TouchableOpacity>
         </View>
+        </KeyboardAvoidingView>
       </ScrollView>
     </SafeAreaView>
   );
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cancelButtonText: {
-    color: '#01796f',
+    color: 'red',
     fontSize: 18,
     fontWeight: 'bold',
   },
