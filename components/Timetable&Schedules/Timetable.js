@@ -12,7 +12,7 @@ const TimetableScreen = ({ navigation }) => {
   const [schedules, setSchedules] = useState([
     {
       id: '1',
-      time: '10:00 AM - 12:00 PM',
+      time: '10:00 AM',
       subject: 'Mobile App',
       location: 'Room 101',
       date: '17',
@@ -20,7 +20,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '2',
-      time: '1:00 PM - 3:00 PM',
+      time: '1:00 PM ',
       subject: 'Algebra',
       location: 'Room 102',
       date: '17',
@@ -28,7 +28,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '3',
-      time: '4:00 PM - 6:00 PM',
+      time: '4:00 PM',
       subject: 'Database',
       location: 'Room 103',
       date: '18',
@@ -36,7 +36,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '4',
-      time: '9:00 AM - 11:00 AM',
+      time: '9:00 AM',
       subject: 'Visual Basic',
       location: 'Room 104',
       date: '18',
