@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [passwordError, setPasswordError] = useState('');

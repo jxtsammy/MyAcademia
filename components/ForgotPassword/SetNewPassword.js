@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const ChangePassword = () => {
+const ChangePassword = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -18,6 +18,7 @@ const ChangePassword = () => {
       setErrorMessage('');
       // Proceed with saving the password (e.g., API call)
       console.log('Password changed successfully');
+      navigation.navigate('Login')
     }
   };
 
@@ -81,7 +82,7 @@ const ChangePassword = () => {
           <Text style={styles.errorText}>{errorMessage}</Text>
         )}
 
-        <TouchableOpacity style={styles.saveButton} onPress={[handleSave, navigation.navigate('Login')]}>
+        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
           <Text style={styles.saveButtonText}>Save</Text>
         </TouchableOpacity>
       </View>
