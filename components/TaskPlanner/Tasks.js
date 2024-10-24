@@ -64,7 +64,7 @@ const TaskItem = ({ task, color, options, checkboxes, toggleCheckbox, deleteTask
   );
 };
 
-export default function TaskList() {
+export default function TaskList({navigation}) {
   const [searchQuery, setSearchQuery] = useState('');
 
   // State to hold the checkbox states for each task
@@ -156,7 +156,7 @@ export default function TaskList() {
       </ScrollView>
 
       {/* Add Button */}
-      <TouchableOpacity style={styles.addButton}>
+      <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTask')}>
         <Text style={styles.addButtonText}>+</Text>
       </TouchableOpacity>
     </View>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform, ScrollView, TextInput, SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const TimetableForm = () => {
+const TimetableForm = ({navigation}) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -164,7 +164,7 @@ const TimetableForm = () => {
 
           {/* Button Container */}
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+          <TouchableOpacity style={styles.saveButton} onPress={[handleSave,navigation.goBack()]}>
             <Text style={styles.saveButtonText}>Save</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.cancelButton} onPress={handleCancel}>

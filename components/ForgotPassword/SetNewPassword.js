@@ -81,7 +81,7 @@ const ChangePassword = () => {
           <Text style={styles.errorText}>{errorMessage}</Text>
         )}
 
-        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+        <TouchableOpacity style={styles.saveButton} onPress={[handleSave, navigation.navigate('Login')]}>
           <Text style={styles.saveButtonText}>Save</Text>
         </TouchableOpacity>
       </View>

@@ -110,7 +110,7 @@ const TaskScreen = () => {
         </ScrollView>
       </KeyboardAvoidingView>
        {/* Save Task Button outside of ScrollView */}
-        <TouchableOpacity style={styles.saveButton} onPress={addTask}>
+        <TouchableOpacity style={styles.saveButton} onPress={[addTask,navigation.goBack()]}>
           <Text style={styles.saveButtonText}>Save Task</Text>
         </TouchableOpacity>
     </SafeAreaView>

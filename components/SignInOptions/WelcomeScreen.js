@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -14,10 +14,10 @@ const WelcomeScreen = () => {
           Explore all the existing features that assists you in enhancing academic performance
         </Text>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.registerButton}>
+          <TouchableOpacity style={styles.registerButton} onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.registerText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#01796F',
     paddingVertical: 15,
     width: '100%',
-    borderRadius: 8,
+    borderRadius: 30,
     marginRight: 10,
     alignItems: 'center',
     justifyContent: 'center'
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     paddingVertical: 15,
    width: '100%',
-    borderRadius: 8,
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: '#01796F',
     marginTop: 20,

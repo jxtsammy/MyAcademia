@@ -60,13 +60,13 @@ const SignUpScreen = () => {
           </View>
 
           {/* Create Account Button */}
-          <TouchableOpacity style={styles.createAccountButton}>
+          <TouchableOpacity style={styles.createAccountButton} onPress={() => navigation.navigate('OTPVerification')}>
             <Text style={styles.createAccountText}>Create Account</Text>
           </TouchableOpacity>
 
           {/* Footer */}
-          <Text style={styles.footerText}>
-            Do you have an account? <Text style={styles.signInText}>Sign In</Text>
+          <Text style={styles.footerText} >
+            Do you have an account? <TouchableOpacity onPress={() => navigation.navigate('Login')}><Text style={styles.signInText}>Sign In</Text></TouchableOpacity>
           </Text>
         </View>
       </ScrollView>

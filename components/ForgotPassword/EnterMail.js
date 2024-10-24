@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 const ForgotPasswordScreen = ({navigation}) => {
 
@@ -31,7 +30,7 @@ const ForgotPasswordScreen = ({navigation}) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.ContinueButton}>
+        <TouchableOpacity style={styles.ContinueButton} onPress={() => navigation.navigate('EmailVerification')}>
           <Text style={styles.ContinueButtonText}>Continue</Text>
         </TouchableOpacity>
       </View>

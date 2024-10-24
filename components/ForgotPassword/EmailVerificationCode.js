@@ -71,7 +71,7 @@ const EmailVerificationScreen = ({navigation}) => {
         ))}
       </View>
 
-      <TouchableOpacity style={styles.verifyButton}>
+      <TouchableOpacity style={styles.verifyButton} onPress={() => navigation.navigate('SetNewPassword')}>
         <Text style={styles.verifyButtonText}>Verify Now</Text>
       </TouchableOpacity>
 
