@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import moment from 'moment';
+import { createDrawerNavigator } from '@react-navigation/drawer'; // Import DrawerNavigator
+import CustomDrawer from './components/CustomDrawer/CustomDrawer';
+import { NavigationContainer } from '@react-navigation/native';
 
+const Drawer = createDrawerNavigator();
 const TimetableScreen = ({ navigation }) => {
   const today = moment();
   const [selectedDate, setSelectedDate] = useState(today.format('D'));
@@ -12,7 +16,7 @@ const TimetableScreen = ({ navigation }) => {
   const [schedules, setSchedules] = useState([
     {
       id: '1',
-      time: '10:00 AM',
+      time: '10:00 AM - 12:00 PM',
       subject: 'Mobile App',
       location: 'Room 101',
       date: '17',
@@ -20,7 +24,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '2',
-      time: '1:00 PM ',
+      time: '1:00 PM - 3:00 PM',
       subject: 'Algebra',
       location: 'Room 102',
       date: '17',
@@ -28,7 +32,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '3',
-      time: '4:00 PM',
+      time: '4:00 PM - 6:00 PM',
       subject: 'Database',
       location: 'Room 103',
       date: '18',
@@ -36,7 +40,7 @@ const TimetableScreen = ({ navigation }) => {
     },
     {
       id: '4',
-      time: '9:00 AM',
+      time: '9:00 AM - 11:00 AM',
       subject: 'Visual Basic',
       location: 'Room 104',
       date: '18',
@@ -107,7 +111,9 @@ const TimetableScreen = ({ navigation }) => {
           <Text style={styles.title}>Timetable</Text>
           <View style={styles.headerIcons}>
             <Ionicons name="notifications-outline" size={24} color="#fff" />
-            <Ionicons name="menu" size={24} color="#fff" style={styles.menuIcon} />
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <Ionicons name="menu" size={24} color="#fff" style={styles.menuIcon} />
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -190,6 +196,33 @@ const TimetableScreen = ({ navigation }) => {
   );
 };
 
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
+      screenOptions={{
+          drawerStyle: {
+            backgroundColor: 'transparent',
+            width: '100%',
+          },
+          overlayColor: 'rgba(0, 0, 0, 0.4)',
+          headerShown: false,
+          drawerType: 'front',
+        }}// Hide the default header
+    >
+      <Drawer.Screen name="Timetable" component={TimetableScreen} />
+    </Drawer.Navigator>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
+  );
+};
+
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -205,7 +238,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#01796F',
     paddingVertical: 15,
-    paddingHorizontal: 25,
+    paddingHorizontal: 20,
     borderRadius: 50,
     marginBottom: 20,
   },
@@ -316,4 +349,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TimetableScreen;
+export default App;
