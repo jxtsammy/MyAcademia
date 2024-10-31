@@ -12,6 +12,7 @@ import Timetable from './components/Timetable&Schedules/Timetable'
 import ScheduleForm from './components/Timetable&Schedules/ScheduleForm'
 import AddTask from './components/TaskPlanner/AddTasks'
 import Tasks from './components/TaskPlanner/AddTasks';
+import CWACalculator from './components/AvgCalculator/AverageCalculator'
 
 const Stack = createStackNavigator();
 
@@ -76,6 +77,11 @@ const App = () => {
         <Stack.Screen
           name="AddTask"
           component={AddTask}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CWACalculator"
+          component={CWACalculator}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
