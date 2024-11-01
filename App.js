@@ -13,6 +13,10 @@ import ScheduleForm from './components/Timetable&Schedules/ScheduleForm'
 import AddTask from './components/TaskPlanner/AddTasks'
 import Tasks from './components/TaskPlanner/AddTasks';
 import CWACalculator from './components/AvgCalculator/AverageCalculator'
+import GetSignedUp from './components/IntroScreens/GetSignedUp'
+import ScheduleIntro from './components/IntroScreens/ScheduleIntro'
+import NotificationIntro from './components/IntroScreens/NotificationsIntro'
+import AiBotIntro from './components/IntroScreens/AiBotIntro'
 
 const Stack = createStackNavigator();
 
@@ -20,10 +24,30 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="WelcomeScreen"
+        initialRouteName="GetSignedUp"
         screenOptions={{
           headerShown: false, // Show header
         }}>
+          <Stack.Screen
+          name="GetSignedUp"
+          component={GetSignedUp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ScheduleIntro"
+          component={ScheduleIntro}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="NotificationIntro"
+          component={NotificationIntro}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AiBotIntro"
+          component={AiBotIntro}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="WelcomeScreen"
           component={WelcomeScreen}
