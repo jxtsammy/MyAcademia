@@ -64,16 +64,6 @@ const ChatMessage = ({ message, isUser }) => {
             </TouchableOpacity>
           )}
           <View style={styles.feedbackButtons}>
-            {!isUser && (
-              <>
-                <TouchableOpacity style={styles.feedbackButton}>
-                  <Ionicons name="thumbs-down-outline" size={20} color="#666" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.feedbackButton}>
-                  <Ionicons name="thumbs-up-outline" size={20} color="#666" />
-                </TouchableOpacity>
-              </>
-            )}
           </View>
         </View>
       </View>
@@ -263,7 +253,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   backgroundImage: {
-    opacity: 0.5,
+    opacity: 0.1,
   },
   scrollView: {
     flex: 1,
@@ -352,13 +342,11 @@ const styles = StyleSheet.create({
   feedbackButtons: {
     flexDirection: 'row',
   },
-  feedbackButton: {
-    marginLeft: 16,
-  },
   inputContainer: {
     padding: 10,
     bottom: 10,
-    marginTop: 5
+    marginTop: 5,
+
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -366,6 +354,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 50,
     padding: 8,
+    borderWidth: 1,
+    borderColor: '#01796f'
   },
   input: {
     flex: 1,
