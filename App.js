@@ -17,6 +17,8 @@ import GetSignedUp from './components/IntroScreens/GetSignedUp'
 import ScheduleIntro from './components/IntroScreens/ScheduleIntro'
 import NotificationIntro from './components/IntroScreens/NotificationsIntro'
 import AiBotIntro from './components/IntroScreens/AiBotIntro'
+import AiChatTip from './components/AiChat/ChatIntro'
+import AiChat from './components/AiChat/ChatScreen'
 
 const Stack = createStackNavigator();
 
@@ -106,6 +108,16 @@ const App = () => {
         <Stack.Screen
           name="CWACalculator"
           component={CWACalculator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AiChatTip"
+          component={AiChatTip}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AiChat"
+          component={AiChat}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
