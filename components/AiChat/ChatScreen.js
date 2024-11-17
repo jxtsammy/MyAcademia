@@ -160,7 +160,7 @@ const ChatAI = () => {
             <Ionicons name="arrow-back" size={30} color="black" />
           </TouchableOpacity>
           <Image
-            source={require('../../assets/1.png')}
+            source={require('../../assets/MyAcademiaLogo.png')}
             style={styles.headerAvatar}
           />
         </View>
