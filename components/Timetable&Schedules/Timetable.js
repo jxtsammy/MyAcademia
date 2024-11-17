@@ -72,7 +72,7 @@ const TimetableScreen = ({ navigation }) => {
       setSelectedDate(null);
       setSelectedDay(null);
     }
-  }, [selectedMonth]);
+  }, [selectedMonth, today]);
 
   const handleDateChange = (day, date) => {
     setSelectedDate(date);

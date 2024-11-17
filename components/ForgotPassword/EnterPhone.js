@@ -9,15 +9,13 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  Keyboard,
   TouchableWithoutFeedback,
-  ScrollView
+  Keyboard
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import CountryPicker from 'react-native-country-picker-modal';
+import { Ionicons } from '@expo/vector-icons';
 
-const LoginScreen = ({navigation}) => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+const ForgotPasswordScreen = ({navigation}) => {
   const [countryCode, setCountryCode] = useState('US');
   const [callingCode, setCallingCode] = useState('1');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -32,31 +30,26 @@ const LoginScreen = ({navigation}) => {
     <SafeAreaView style={styles.safeArea}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardAvoidingView}
+        style={styles.keyboardAvoidView}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            contentContainerStyle={styles.scrollView}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-          >
+          <View style={styles.mainContainer}>
+            <View style={styles.nav}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Text style={styles.navText}>←</Text>
+              </TouchableOpacity>
+            </View>
+
             <View style={styles.container}>
               <Image
-                source={require('../../assets/loginimg.png')}
+                source={require('../../assets/ForgotPassword.png')}
                 style={styles.image}
               />
-              <Text style={styles.welcomeText}>Welcome back!</Text>
+              <Text style={styles.forgotText}>Forgot Password</Text>
 
-              <View style={styles.inputContainer}>
-                <TextInput
-                  placeholder="Email"
-                  placeholderTextColor="#888"
-                  style={styles.input}
-                  keyboardType="email-address"
-                  returnKeyType="next"
-                  autoCapitalize="none"
-                />
-              </View>
+              <Text style={styles.subtitle}>
+                Enter your phone number associated with your account for verification code
+              </Text>
 
               {/* Phone Number Input Container */}
               <View style={styles.phoneContainer}>
@@ -89,58 +82,22 @@ const LoginScreen = ({navigation}) => {
                     placeholderTextColor="#888"
                     style={styles.phoneNumberInput}
                     keyboardType="phone-pad"
-                    returnKeyType="next"
+                    returnKeyType="done"
                   />
                 </View>
               </View>
 
-              <View style={styles.inputContainer}>
-                <TextInput
-                  placeholder="Password"
-                  placeholderTextColor="#888"
-                  style={styles.input}
-                  secureTextEntry={!passwordVisible}
-                  returnKeyType="done"
-                />
-                <TouchableOpacity
-                  onPress={() => setPasswordVisible(!passwordVisible)}
-                  style={styles.eyeIcon}
-                >
-                  <Ionicons
-                    name={passwordVisible ? 'eye' : 'eye-off'}
-                    size={24}
-                    color="gray"
-                  />
-                </TouchableOpacity>
-              </View>
-
               <TouchableOpacity
+                style={styles.ContinueButton}
                 onPress={() => {
                   Keyboard.dismiss();
-                  navigation.navigate('EnterPhone');
+                  navigation.navigate('PhoneVerification');
                 }}
               >
-                <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+                <Text style={styles.ContinueButtonText}>Continue</Text>
               </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.loginButton}
-                onPress={() => {
-                  Keyboard.dismiss();
-                  navigation.navigate('OTPVerification');
-                }}
-              >
-                <Text style={styles.loginButtonText}>Login</Text>
-              </TouchableOpacity>
-
-              <Text style={styles.signUpText}>
-                Don't have an account?{' '}
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                  <Text style={styles.signUpLink}>Sign up</Text>
-                </TouchableOpacity>
-              </Text>
             </View>
-          </ScrollView>
+          </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -152,12 +109,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  keyboardAvoidingView: {
+  keyboardAvoidView: {
     flex: 1,
   },
-  scrollView: {
-    flexGrow: 1,
-    justifyContent: 'center',
+  mainContainer: {
+    flex: 1,
+  },
+  nav: {
+    flexDirection: 'row',
+    left: 10,
+  },
+  navText: {
+    fontSize: 30,
+    fontWeight: '600',
+    marginRight: 10,
   },
   container: {
     flex: 1,
@@ -168,31 +133,30 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 550,
-    height: 350,
-    marginBottom: 20,
+    height: 310,
+    marginBottom: 30,
     resizeMode: 'contain',
+    top: -50
   },
-  welcomeText: {
+  forgotText: {
     fontSize: 35,
     fontWeight: '300',
-    marginBottom: 40,
+    marginBottom: 20,
     textAlign: 'center',
   },
-  inputContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: '#333',
-    borderWidth: 1,
-    borderRadius: 25,
-    marginBottom: 15,
+  subtitle: {
+    textAlign: 'center',
+    color: '#777',
+    marginBottom: 40,
+    fontSize: 14,
     paddingHorizontal: 10,
   },
+  // Phone input styles
   phoneContainer: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 15,
+    marginBottom: 25,
   },
   countryPickerContainer: {
     width: '30%',
@@ -224,42 +188,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 15,
   },
-  input: {
-    flex: 1,
-    height: 50,
-    fontSize: 18,
-  },
-  eyeIcon: {
-    marginLeft: 10,
-  },
-  forgotPasswordText: {
-    alignSelf: 'flex-end',
-    marginBottom: 20,
-    color: 'red',
-    left: 120
-  },
-  loginButton: {
+  ContinueButton: {
     width: '100%',
-    backgroundColor: '#01796F',
+    backgroundColor: '#1C6559',
     paddingVertical: 17,
     borderRadius: 30,
     alignItems: 'center',
     marginBottom: 20,
   },
-  loginButtonText: {
+  ContinueButtonText: {
     color: '#ffffff',
     fontSize: 20,
     fontWeight: '600',
   },
-  signUpText: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#333',
-  },
-  signUpLink: {
-    fontWeight: '600',
-    color: '#01796F',
-  },
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

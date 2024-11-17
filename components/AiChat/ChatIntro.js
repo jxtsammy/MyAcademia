@@ -21,6 +21,7 @@ const WelcomeScreen = ({ onGetStarted }) => {
 
         <Text style={styles.subtitle}>
           Beyond Conversation Discover a New Level of Intelligence and Engagement
+          ACE
         </Text>
 
         {/* Bot Illustration */}

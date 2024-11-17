@@ -164,7 +164,7 @@ const ChatAI = () => {
             style={styles.headerAvatar}
           />
         </View>
-        <Text style={styles.headerTitle}>Chat AI</Text>
+        <Text style={styles.headerTitle}>Ace</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -188,7 +188,7 @@ const ChatAI = () => {
             style={styles.input}
             value={inputText}
             onChangeText={setInputText}
-            placeholder="Ask ai chat anything"
+            placeholder="Ask Ace anything"
             placeholderTextColor="#333"
             onSubmitEditing={handleSend}
             multiline={true}
@@ -354,8 +354,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 50,
     padding: 8,
-    borderWidth: 1,
-    borderColor: '#01796f'
   },
   input: {
     flex: 1,
