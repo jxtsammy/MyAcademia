@@ -20,7 +20,7 @@ import AiBotIntro from './components/IntroScreens/AiBotIntro'
 import AiChatTip from './components/AiChat/ChatIntro'
 import AiChat from './components/AiChat/ChatScreen'
 import Home from './components/Home'
-import CustomDrawer from './components/CustomNavigations/CustomDawer';
+import EditProfile from './components/ProfileSettings/EditProfile'
 
 const Stack = createStackNavigator();
 
@@ -130,6 +130,11 @@ const App = () => {
         <Stack.Screen
           name="CustomDrawer"
           component={CustomDrawer}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

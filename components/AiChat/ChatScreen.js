@@ -34,7 +34,7 @@ const ChatMessage = ({ message, isUser }) => {
       {!isUser && (
         <View style={[styles.avatar, styles.aiAvatar]}>
           <Image
-            source={require('../../assets/1.png')}
+            source={require('../../assets/chatBackground.jpeg')}
             style={styles.botAvatarImage}
           />
         </View>
